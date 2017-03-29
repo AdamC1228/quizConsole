@@ -48,6 +48,12 @@ int main(int argc, char *argv[])
     //Grab and process all the arguments passed to the program
     parser.process(app);
 
+    if(parser.value(inputFile).isEmpty()||parser.value(inputFile).isNull())
+    {
+        qDebug()<<"ERROR: You must specify at least a file to take this quiz.";
+        exit(EXIT_FAILURE);
+    }
+
     threader temp(parser.value(inputFile),parser.value(time),parser.value(numQuestion));
 
 

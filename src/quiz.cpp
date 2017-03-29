@@ -81,6 +81,8 @@ void quiz::checkAnswer(int response)
 
 QString quiz::quizOver()
 {
+    quizTimer.addSecs(1);
+
     int ms = quizTimer.elapsed();
     int s  = ms / 1000;
     QString percentage;
@@ -193,6 +195,7 @@ void quiz::start()
     //qDebug() << "DataArray Count:" << QString::number(dataArray.count());
 
     randomize();
+
     quizTimer.start();
     nextQuestion();
 }

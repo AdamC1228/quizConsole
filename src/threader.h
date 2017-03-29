@@ -17,6 +17,7 @@ private:
     console *theConsole;
     quiz * theQuiz;
     QTimer *timer;
+    QThread *consoleThread;
 };
 
 #endif // THREADER_H

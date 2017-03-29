@@ -4,7 +4,7 @@
 threader::threader(QString file, QString time, QString num)
 {
     //Create Thread
-    QThread *consoleThread = new QThread();
+    consoleThread = new QThread();
 
     //create quiz
     theQuiz = new quiz();
@@ -41,9 +41,8 @@ void threader::abnormalTermination()
 void threader::quitThread()
 {
     timer->stop();
-    //Sleep the quiz thread
-    theConsole->sleep();
-    theConsole->exit();
+    //Done with the thread
+    consoleThread->terminate();
 
     //Print the score
     qDebug()<<"\n\n";
